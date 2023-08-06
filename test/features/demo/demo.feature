@@ -1,6 +1,6 @@
 Feature: Demo Feature
 
-  
+  # @demo
     Scenario Outline: Run the demo feature
         Given Google Homepage is open
         When Search <SearchItem> is entered
@@ -9,4 +9,4 @@ Feature: Demo Feature
 
         Examples:
             | TestID     | SearchItem | ExpectedURL           |
-            | Demo_TC001 | WDIO       | https://webdriver.io/ |
+            | Demo_TC001 | WWDIO       | https://webdriver.io/ |
