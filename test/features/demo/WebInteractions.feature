@@ -1,6 +1,6 @@
 Feature: WebInteractions Feature
 
-    # @demo
+    @smoke
     Scenario Outline: Run the WebInteraction feature
         Given A webpage is open
         When Perform Web Interaction

@@ -34,7 +34,7 @@ Then(/^URL should match with (.*)$/, async function (expectedURL) {
 });
 
 Given(/^A webpage is open$/, async function () {
-  await browser.url("");
+  await browser.url("https://the-internet.herokuapp.com/tables");
   // await browser.setTimeout({implicit:30000, pageLoad:30000})
 
   await browser.maximizeWindow();

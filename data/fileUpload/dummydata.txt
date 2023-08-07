@@ -1,1 +1,3 @@
 Hello, how are you?
+
+"wdio": "wdio run ./wdio.conf.ts",

@@ -1,35 +1,24 @@
-// import { Given } from "@wdio/cucumber-framework";
-
-// Given(/^Login to inventory web app$/, async function () {
-//     // 1. *** Go to the inventory app
-//     await browser.url("https://www.saucedemo.com/");
-
-//     // 2. *** Login to the inventory app
-//     await $(`#user-name`).setValue("standard_user")
-//     await $(`#password`).setValue("secret_sauce")
-//     await $(`#login-button`).click
-//     // await browser.pause(3000)
-//     // browser.maximizeWindow();
-//     // await browser.pause(1000);
-//   });
-
 import { Given } from "@wdio/cucumber-framework";
-
 import chai = require("chai");
 
 Given(/^Login to inventory web app$/, async function () {
-  try {
-    await browser.url("https://www.saucedemo.com");
+  // 1. *** Go to the inventory app
+  // const testUsername = process.env.TEST_STD_USERNAME;
+  console.log(`<<TestUsername: ${process.env.TEST_STD_USERNAME}`)
+  await browser.url("https://www.saucedemo.com");
+
+   // 2. *** Login to the inventory app
+  try {   
     await browser.maximizeWindow();
-    await (await $(`//*[@id="user-nme"]`)).setValue("standard_user");
-    await (await $(`//*[@id="password"]`)).setValue("secret_sauce");
+    await (await $(`//*[@id="user-nme"]`)).setValue(process.env.TEST_STD_USERNAME);
+    await (await $(`//*[@id="password"]`)).setValue(process.env.TEST_STD_PASSWORD);
     await (await $(`//*[@id="login-button"]`)).click();
   } catch (err) {
     console.log(`Error in first login. Retrying...`);
     await browser.refresh()
     await browser.pause(2000)
-    await (await $(`//*[@id="user-name"]`)).setValue("standard_user");
-    await (await $(`//*[@id="password"]`)).setValue("secret_sauce");
+    await (await $(`//*[@id="user-name"]`)).setValue(`$(process.env.TEST_STD_USERNAME)`);
+    await (await $(`//*[@id="password"]`)).setValue(`$(process.env.TEST_STD_PASSWORD)`);
     await (await $(`//*[@id="login-button"]`)).click();
   }
 
